@@ -245,11 +245,11 @@ public class KitchenSinkController {
                                                            "hello ã�“ã‚“ã�«ã�¡ã�¯")
                                 )),
                                 new CarouselColumn(imageUrl, "hoge", "fuga", Arrays.asList(
-                                        new PostbackAction("è¨€ hello2",
+                                        new PostbackAction("è¨€ hello2",
                                                            "hello ã�“ã‚“ã�«ã�¡ã�¯",
                                                            "hello ã�“ã‚“ã�«ã�¡ã�¯"),
                                         new MessageAction("Say message",
-                                                          "Rice=ç±³")
+                                                          "Rice=癟簣糧")
                                 ))
                         ));
                 TemplateMessage templateMessage = new TemplateMessage("Carousel alt text", carouselTemplate);
@@ -320,7 +320,7 @@ public class KitchenSinkController {
 		itscLOGIN = System.getenv("ITSC_LOGIN");
 	}
 
-	private DatabaseEngine database;
+	private SQLDatabaseEngine database;
 	private String itscLOGIN;
 	
 

@@ -15,37 +15,36 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 	@Override
 	String search(String text) throws Exception {
 		//Write your code here
-		String result = null;
-/*		BufferedReader br = null;
-		InputStreamReader isr = null;
-*/		
+		String result=null;
+	
 		Connection connection = this.getConnection();
 		PreparedStatement stmt = connection.prepareStatement("SELECT id, keyword, response FROM response WHERE keyword = ?"); 
 		
 		try {
 
-/*			isr = new InputStreamReader(
-                    this.getClass().getResourceAsStream(FILENAME));
-			br = new BufferedReader(isr);
-*/
+
 			stmt.setString(1,text);
 			ResultSet rs = stmt.executeQuery();
+
 			if(rs.next())
-			result=rs.getString(3);
-			
+				result=rs.getString(3);
+			//if (!rs.first())
+				//throw new Exception("NOT FOUND");
 			rs.close(); stmt.close(); connection.close();
-			
 
-			
-
+			//else
+				//throw new Exception("NOT FOUND");
 		} catch (Exception e) {
 			System.out.println(e);
-
+			
+			//throw new Exception("NOT FOUND");
 			}
 	
-		if (result!= null)
+		if (result !=null)
 			return result;
-		return null;
+		throw new Exception("NOT FOUND");
+		//return null;
+		
 	}
 	
 	
